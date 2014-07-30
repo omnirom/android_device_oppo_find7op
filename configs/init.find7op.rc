@@ -565,7 +565,7 @@ service diag_mdlog /system/bin/diag_mdlog -s 100
 #    start diag_mdlog
 
 # virtual sdcard daemon running as media_rw (1023)
-service fuse_sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
+service fuse /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
 
 service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
