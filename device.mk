@@ -27,7 +27,8 @@ PRODUCT_COPY_FILES += \
 
 # Sensor configuration from Oppo
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/sensor/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
+    $(LOCAL_PATH)/sensor/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf \
+    $(LOCAL_PATH)/sensor/sap.conf:system/etc/sap.conf
 
 # Properties
 
