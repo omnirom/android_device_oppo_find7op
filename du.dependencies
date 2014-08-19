@@ -1,0 +1,39 @@
+[
+  {
+    "remote": "du",
+    "repository": "android_kernel_oppo_msm8974",
+    "target_path": "kernel/oppo/msm8974",
+    "revision": "du44"
+  },
+  {
+    "remote": "du",
+    "repository": "android_device_qcom_common",
+    "target_path": "device/qcom/common",
+    "revision": "du44"
+  },
+  {
+    "remote": "du",
+    "repository": "proprietary_vendor_oppo",
+    "target_path": "vendor/oppo",
+    "revision": "du44"
+  },
+  {
+    "remote": "du",
+    "repository": "android_hardware_qcom_audio-caf-bfam",
+    "target_path": "hardware/qcom/audio-caf-bfam",
+    "revision": "du44"
+  },
+  {
+    "remote": "du",
+    "repository": "android_hardware_qcom_display-caf-bfam",
+    "target_path": "hardware/qcom/display-caf-bfam",
+    "revision": "du44"
+  },
+  {
+    "remote": "du",
+    "repository": "android_hardware_qcom_media-caf-bfam",
+    "target_path": "hardware/qcom/media-caf-bfam",
+    "revision": "du44"
+  }
+]
+
