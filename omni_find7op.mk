@@ -37,13 +37,13 @@ $(call inherit-product, device/oppo/find7op/device.mk)
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := omni_find7op
 PRODUCT_DEVICE := find7op
-PRODUCT_BRAND := OPPO
-PRODUCT_MODEL := FIND7OP
-PRODUCT_MANUFACTURER := OPPO
+PRODUCT_BRAND := OnePlus
+PRODUCT_MODEL := A0001
+PRODUCT_MANUFACTURER := OnePlus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_PRODUCT=FIND7OP \
-    TARGET_DEVICE=FIND7OP \
+    TARGET_DEVICE=A0001 \
     BUILD_FINGERPRINT="4.3/JLS36C/1390465867:user/release-keys" \
     PRIVATE_BUILD_DESC="msm8974-user 4.3 JLS36C eng.root.20140510.152835 release-keys"
 
