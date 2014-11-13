@@ -19,6 +19,7 @@ PRODUCT_COPY_FILES += \
 # NFC packages
 PRODUCT_PACKAGES += \
     NfcNci \
+    nfc_nci.pn54x.default \
     Tag
 
 PRODUCT_COPY_FILES += \
