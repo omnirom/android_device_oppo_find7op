@@ -56,5 +56,5 @@ TARGET_KERNEL_CONFIG := msm8974_find7op_defconfig
 
 # Inherit from proprietary blobs
 $(call inherit-product-if-exists, vendor/oppo/find7op/find7op-vendor.mk)
-$(call inherit-product-if-exists, vendor/oppo/find7a/find7a-vendor.mk)
+$(call inherit-product-if-exists, vendor/oppo/msm8974-common/msm8974-common-vendor.mk)
 
