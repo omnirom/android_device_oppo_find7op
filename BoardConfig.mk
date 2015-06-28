@@ -20,6 +20,12 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 # NFC
 BOARD_NFC_CHIPSET := pn547
 
+# healthd tricolor led support
+HEALTHD_ENABLE_TRICOLOR_LED := true
+RED_LED_PATH := /sys/class/leds/red/brightness
+GREEN_LED_PATH := /sys/class/leds/green/brightness
+BLUE_LED_PATH := /sys/class/leds/blue/brightness
+
 # Recovery:Start
 
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/configs/fstab.find7op
