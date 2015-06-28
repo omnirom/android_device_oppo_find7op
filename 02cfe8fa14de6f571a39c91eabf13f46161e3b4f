@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8eba960_449d000c",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000515
+      },
+      "writtenOn": "2015-06-28T22:03:58Z",
+      "side": 1,
+      "message": "If these sysfs led colors entries are /sys/class/leds/[color]/brightness then it is not required to defined since these are default way. :)",
+      "range": {
+        "startLine": 25,
+        "startChar": 32,
+        "endLine": 25,
+        "endChar": 35
+      },
+      "revId": "02cfe8fa14de6f571a39c91eabf13f46161e3b4f",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
