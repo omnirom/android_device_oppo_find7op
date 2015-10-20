@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8f5b13e_48cbd323",
+        "filename": "omni_find7op.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2015-10-20T08:35:08Z",
+      "side": 1,
+      "message": "Max, I guess you wanted to put find7op here, right?",
+      "revId": "cb86ae450a746456ae1d305f5b3092e11f63b493",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
