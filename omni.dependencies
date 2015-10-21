@@ -19,20 +19,26 @@
   },
   {
     "remote": "omnirom",
+    "repository": "android_device_qcom_sepolicy",
+    "target_path": "device/qcom/sepolicy",
+    "revision": "android-6.0"
+  },
+  {
+    "remote": "omnirom",
     "repository": "android_device_oppo_msm8974-common",
     "target_path": "device/oppo/msm8974-common",
-    "revision": "android-5.1"
+    "revision": "android-6.0"
   },
   {
     "remote": "omnirom",
     "repository": "android_kernel_oppo_msm8974",
     "target_path": "kernel/oppo/msm8974",
-    "revision": "android-5.1"
+    "revision": "android-6.0"
   },
   {
     "remote": "omnirom",
     "repository": "android_frameworks_av",
     "target_path": "frameworks/av-caf",
-    "revision": "android-5.1-caf"
+    "revision": "android-6.0-caf"
   }
 ]
