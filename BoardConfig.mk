@@ -17,6 +17,14 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
+# BoringSSL compatibility wrapper
+PRODUCT_PACKAGES += \
+    libboringssl-compat
+
+# RIL
+PRODUCT_PACKAGES += \
+    libxml2
+
 # NFC
 BOARD_NFC_CHIPSET := pn547
 
