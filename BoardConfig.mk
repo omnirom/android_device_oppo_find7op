@@ -20,6 +20,10 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 # NFC
 BOARD_NFC_CHIPSET := pn547
 
+# BoringSSL compatability wrapper
+PRODUCT_PACKAGES += \
+    libboringssl-compat
+
 # Recovery:Start
 
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/configs/fstab.find7op
