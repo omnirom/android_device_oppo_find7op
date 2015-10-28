@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8f5b13e_d9a453b4",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2015-10-28T20:52:37Z",
+      "side": 1,
+      "message": "you can remove it here - I have added it to common.mk",
+      "revId": "59345d6f635dca7e9f5d8a7c0120fedb0638e9d3",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
