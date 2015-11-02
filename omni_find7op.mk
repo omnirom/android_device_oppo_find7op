@@ -34,6 +34,9 @@ TARGET_BOOTANIMATION_SIZE := 1080x720
 # no DSPManager for us
 TARGET_NO_DSPMANAGER := true
 
+# compile SnapdragonCamera instead of Camera2
+TARGET_USES_SNAPDRAGONCAMERA := true
+
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
@@ -58,5 +61,5 @@ TARGET_KERNEL_SOURCE := kernel/oppo/msm8974
 TARGET_KERNEL_CONFIG := msm8974_find7op_defconfig
 
 # Inherit from proprietary blobs
-$(call inherit-product, vendor/oppo/find7a/find7a-vendor.mk)
+$(call inherit-product, vendor/oppo/find7op/find7op-vendor.mk)
 
