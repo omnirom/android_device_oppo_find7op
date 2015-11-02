@@ -6,6 +6,9 @@
 # Include common makefile
 $(call inherit-product, device/oppo/msm8974-common/common.mk)
 
+$(call inherit-product, frameworks/native-caf/build/phone-xxxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product, frameworks/native-caf/build/phone-xxxhdpi-3072-hwui-memory.mk)
+
 LOCAL_PATH := device/oppo/find7op
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -30,6 +33,10 @@ PRODUCT_COPY_FILES += \
 # Sensor configuration from Oppo
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensor/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
+
+# Snapdragon Camera
+PRODUCT_PACKAGES += \
+    SnapdragonCamera
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
