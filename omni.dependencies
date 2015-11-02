@@ -34,5 +34,11 @@
     "repository": "android_frameworks_av",
     "target_path": "frameworks/av-caf",
     "revision": "android-5.1-caf"
-  }
+  },
+  {
+    "remote": "github",
+    "repository": "Herna1994/android_packages_apps_SnapdragonCamera",
+    "target_path": "packages/apps/SnapdragonCamera",
+    "revision": "android-6.0-8974"
+  },
 ]
