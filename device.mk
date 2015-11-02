@@ -3,6 +3,12 @@
 #
 # Everything in this directory will become public
 
+# Camera
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_$
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+
 # Include common makefile
 $(call inherit-product, device/oppo/msm8974-common/common.mk)
 
