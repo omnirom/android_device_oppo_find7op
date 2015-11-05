@@ -347,6 +347,7 @@ on property:ro.boot.emmc=true
 service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
     class core
     user root
+    seclabel u:r:bluetooth_loader:s0
     oneshot
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
@@ -354,6 +355,7 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     user bluetooth
     group qcom_oncrpc bluetooth net_bt_admin system
     disabled
+    seclabel u:r:bluetooth_loader:s0
     oneshot
 
 on property:bluetooth.hciattach=true
@@ -493,12 +495,12 @@ service qseecomd /system/bin/qseecomd
     user root
     group root
 
-service wcnss-service /system/bin/logwrapper /system/bin/wcnss_service
+service wcnss-service /system/bin/wcnss_service
     class main
     user system
     group system wifi qcom_diag radio
 
-service time_daemon /system/bin/logwrapper /system/bin/time_daemon
+service time_daemon /system/bin/time_daemon
     class late_start
     user root
     group root radio qcom_diag
