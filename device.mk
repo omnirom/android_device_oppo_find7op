@@ -22,7 +22,7 @@ PRODUCT_COPY_FILES += \
 # NFC packages
 PRODUCT_PACKAGES += \
     NfcNci \
-    nfc_nci.pn54x.default \
+    nfc_nci.msm8974 \
     Tag
 
 PRODUCT_COPY_FILES += \
