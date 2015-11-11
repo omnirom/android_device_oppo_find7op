@@ -7,7 +7,7 @@
 $(call inherit-product, device/oppo/msm8974-common/common.mk)
 
 $(call inherit-product, frameworks/native-caf/build/phone-xxxhdpi-3072-dalvik-heap.mk)
-$(call inherit-product, frameworks/native-caf/build/phone-xxxhdpi-3072-hwui-memory.mk)
+$(call inherit-product, frameworks/native-caf/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 LOCAL_PATH := device/oppo/find7op
 
@@ -22,7 +22,7 @@ PRODUCT_COPY_FILES += \
 # NFC packages
 PRODUCT_PACKAGES += \
     NfcNci \
-    nfc_nci.pn54x.default \
+    nfc_nci.msm8974 \
     Tag
 
 PRODUCT_COPY_FILES += \
