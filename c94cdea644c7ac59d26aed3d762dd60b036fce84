@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b8f5b13e_3ed0c0c9",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2015-11-11T16:03:29Z",
+      "side": 1,
+      "message": "AFAIK noone uses a xxxhdpi config for the find7op.\neven CM is using 2048 one. While it makes sense to use more memory for dalvik its highly uncertain it has any advantages for hwui",
+      "parentUuid": "b8f5b13e_3e656041",
+      "revId": "c94cdea644c7ac59d26aed3d762dd60b036fce84",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8f5b13e_1e5a9c83",
         "filename": "omni_find7op.mk",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-11-11T14:20:56Z",
       "side": 1,
       "message": "Does it really looks better? Stock one looks good for me.",
+      "revId": "c94cdea644c7ac59d26aed3d762dd60b036fce84",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8f5b13e_5ecb8423",
+        "filename": "omni_find7op.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2015-11-11T16:03:29Z",
+      "side": 1,
+      "message": "this is not about better locking or not\nexperiences have shown that a large bootanim can lead to memory issues during boot which are very hard to diagnose\nusing a smaller one is a little price to pay to be save",
+      "parentUuid": "b8f5b13e_1e5a9c83",
       "revId": "c94cdea644c7ac59d26aed3d762dd60b036fce84",
       "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
       "unresolved": false
