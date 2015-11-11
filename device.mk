@@ -25,6 +25,10 @@ PRODUCT_PACKAGES += \
     nfc_nci.msm8974 \
     Tag
 
+# Libstlport
+PRODUCT_PACKAGES += Â\
+    libstlport
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
