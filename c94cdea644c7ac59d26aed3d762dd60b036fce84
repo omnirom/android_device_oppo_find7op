@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8f5b13e_3e656041",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2015-11-11T14:20:56Z",
+      "side": 1,
+      "message": "I think the 3GB configuration works good enough.\n\nIs there anything that makes the device to run better by changing to 2048?",
+      "revId": "c94cdea644c7ac59d26aed3d762dd60b036fce84",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8f5b13e_1e5a9c83",
+        "filename": "omni_find7op.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2015-11-11T14:20:56Z",
+      "side": 1,
+      "message": "Does it really looks better? Stock one looks good for me.",
+      "revId": "c94cdea644c7ac59d26aed3d762dd60b036fce84",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
