@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b8f5b13e_de53146b",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001016
+      },
+      "writtenOn": "2015-11-12T10:52:00Z",
+      "side": 1,
+      "message": "I think its not necessary to have the 3072 but that\u0027s a small change we could talk about :)",
+      "parentUuid": "b8f5b13e_3e656041",
+      "revId": "c94cdea644c7ac59d26aed3d762dd60b036fce84",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8f5b13e_1e5a9c83",
         "filename": "omni_find7op.mk",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2015-11-11T16:03:29Z",
       "side": 1,
       "message": "this is not about better locking or not\nexperiences have shown that a large bootanim can lead to memory issues during boot which are very hard to diagnose\nusing a smaller one is a little price to pay to be save",
+      "parentUuid": "b8f5b13e_1e5a9c83",
+      "revId": "c94cdea644c7ac59d26aed3d762dd60b036fce84",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8f5b13e_7ec6481d",
+        "filename": "omni_find7op.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001016
+      },
+      "writtenOn": "2015-11-12T10:52:00Z",
+      "side": 1,
+      "message": "First I think it\u0027s too huge. Second is the Zip is smaller. And the important thing is: I want it :)",
       "parentUuid": "b8f5b13e_1e5a9c83",
       "revId": "c94cdea644c7ac59d26aed3d762dd60b036fce84",
       "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
