@@ -32,6 +32,9 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
+    # NXP HAL expects /dev/pn54x
+    symlink /dev/pn544 /dev/pn54x
+
     # bluetooth
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
