@@ -22,11 +22,9 @@ PRODUCT_COPY_FILES += \
 # NFC packages
 PRODUCT_PACKAGES += \
     NfcNci \
-    nfc_nci.find7op \
-    Tag
+    nfc_nci.find7op
 
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
     $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf
 
