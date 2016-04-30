@@ -35,5 +35,6 @@ PRODUCT_COPY_FILES += \
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=480 \
-    persist.camera.4k2k.enable=1
+    persist.camera.4k2k.enable=1 \
+    ro.qti.sensors.ir_proximity=true
 
