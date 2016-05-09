@@ -22,7 +22,8 @@ PRODUCT_COPY_FILES += \
 # NFC packages
 PRODUCT_PACKAGES += \
     NfcNci \
-    nfc_nci.find7op
+    nfc_nci.find7op \
+		SnapdragonCamera
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
@@ -37,4 +38,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=480 \
     persist.camera.4k2k.enable=1 \
     ro.qti.sensors.ir_proximity=true
-
