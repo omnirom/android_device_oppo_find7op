@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98faad2e_f83138ff",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000174
+      },
+      "writtenOn": "2016-05-11T03:18:29Z",
+      "side": 1,
+      "message": "Not the best place to put this. Just create this under NFC packages\n\n#Snapdragon Camera\nPRODUCT_PACKAGES +\u003d \\\n    SnapdragonCamera\n\n\n\nOr wait on Max, I told him privately that I already set up a vendor flag for the Snapdragon Camera stuff, let see if he looks at it.",
+      "revId": "90f225852f9ddb1dd13cbf8ebf3b7adce0f98838",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
