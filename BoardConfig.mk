@@ -20,6 +20,9 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 # NFC
 NFC_NXP_CHIP_TYPE := PN547C2
 
+#TWRP
+TW_THEME := portrait_hdpi
+
 # Recovery:Start
 
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/configs/fstab.find7op
