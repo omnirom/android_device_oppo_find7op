@@ -17,7 +17,10 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "Oppo Find 7 OnePlus Edition"
+#define BTM_DEF_LOCAL_NAME   "OnePlus One"
 #define BTA_DISABLE_DELAY 1000 /* in milliseconds */
+
+#define MAX_L2CAP_CHANNELS    16
+#define BT_CLEAN_TURN_ON_DISABLED 1
 
 #endif
