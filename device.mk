@@ -22,8 +22,7 @@ PRODUCT_COPY_FILES += \
 # device specific packages
 PRODUCT_PACKAGES += \
     NfcNci \
-    nfc_nci.find7op \
-    SnapdragonCamera
+    nfc_nci.find7op
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
