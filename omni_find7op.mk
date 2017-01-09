@@ -47,8 +47,8 @@ PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_PRODUCT=FIND7OP \
     TARGET_DEVICE=A0001 \
-    BUILD_FINGERPRINT="4.3/JLS36C/1390465867:user/release-keys" \
-    PRIVATE_BUILD_DESC="msm8974-user 4.3 JLS36C eng.root.20140510.152835 release-keys"
+		BUILD_FINGERPRINT=oneplus/bacon/A0001:6.0.1/MHC19Q/ZNH2KAS1KN:user/release-keys \
+    PRIVATE_BUILD_DESC="bacon-user 6.0.1 MHC19Q ZNH2KAS1KN release-keys"
 
 # Inline kernel
 TARGET_KERNEL_SOURCE := kernel/oppo/msm8974
@@ -56,4 +56,3 @@ TARGET_KERNEL_CONFIG := msm8974_find7op_defconfig
 
 # Inherit from proprietary blobs
 $(call inherit-product, vendor/oppo/find7a/find7a-vendor.mk)
-
