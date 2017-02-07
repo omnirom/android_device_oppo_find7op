@@ -19,6 +19,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/fstab.find7op:root/fstab.qcom \
     $(LOCAL_PATH)/configs/twrp.fstab:recovery/root/etc/twrp.fstab
 
+# Audio config files
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/mixer_paths.xml:/system/etc/mixer_paths.xml
+
 # device specific packages
 PRODUCT_PACKAGES += \
     NfcNci \
