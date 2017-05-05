@@ -51,7 +51,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="bacon-user 6.0.1 MHC19Q ZNH2KAS1KN release-keys"
 
 # Inline kernel
-TARGET_KERNEL_SOURCE := kernel/oppo/msm8974
+TARGET_KERNEL_SOURCE := kernel/oneplus/msm8974
 TARGET_KERNEL_CONFIG := msm8974_find7op_defconfig
 
 # Inherit from proprietary blobs
