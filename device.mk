@@ -41,4 +41,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=480 \
     persist.camera.4k2k.enable=1 \
     ro.qti.sensors.ir_proximity=true \
-    persist.audio.fluence.voicecall=false
+    persist.audio.fluence.voicecall=false \
+    audio.offload.disable=1
