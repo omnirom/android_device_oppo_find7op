@@ -20,3 +20,4 @@ import init.qcom.power.rc
 on init
     # NXP HAL expects /dev/pn54x
     symlink /dev/pn544 /dev/pn54x
+    chown nfc nfc /dev/pn54x
