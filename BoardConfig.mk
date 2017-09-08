@@ -5,7 +5,7 @@ LOCAL_PATH := device/oppo/find7op
 
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := find7op
-TARGET_OTA_ASSERT_DEVICE := bacon,A0001
+TARGET_OTA_ASSERT_DEVICE := none
 
 # Encryption sepolicy
 BOARD_SEPOLICY_DIRS += \
