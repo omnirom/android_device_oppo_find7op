@@ -44,3 +44,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qti.sensors.ir_proximity=true \
     persist.audio.fluence.voicecall=false \
     audio.offload.disable=1
+
+# Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.perf.cores_online=2 \
+    ro.vendor.extension_library=libqti-perfd-client.so
