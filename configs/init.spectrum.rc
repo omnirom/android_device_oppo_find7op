@@ -1,0 +1,95 @@
+# SPECTRUM KERNEL MANAGER
+# Ramdisk file for profile based kernel management
+# Implimentation inspired by Franco's fku profiles
+
+# Initialization
+on property:sys.boot_completed=1
+   # Set default profile on first boot
+   setprop persist.spectrum.profile 0
+   # Enable Spectrum support
+   setprop spectrum.support 1
+   # Add kernel name
+   setprop persist.spectrum.kernel Omni
+
+# Balance (default profile)
+on property:persist.spectrum.profile=0
+    write /sys/kernel/msm_limiter/suspend_min_freq "0:268800 1:268800 2:268800 3:268800"
+    write /sys/kernel/msm_limiter/resume_max_freq "0:1958400 1:1958400 2:1958400 3:1958400"
+    write /sys/kernel/msm_limiter/suspend_max_freq "0:1420800 1:1420800 2:1420800 3:1420800"
+    write /sys/module/msm_thermal/parameters/temp_threshold 65
+    write /sys/kernel/msm_limiter/scaling_governor "0:smartmax 1:smartmax 2:smartmax 3:smartmax"
+    write /sys/devices/system/cpu/cpufreq/smartmax/awake_ideal_freq 1036800
+    write /sys/devices/system/cpu/cpufreq/smartmax/boost_freq 1958400
+    write /sys/devices/system/cpu/cpufreq/smartmax/down_rate 3
+    write /sys/devices/system/cpu/cpufreq/smartmax/max_cpu_load 80
+    write /sys/devices/system/cpu/cpufreq/smartmax/min_cpu_load 15
+    write /sys/devices/system/cpu/cpufreq/smartmax/min_sampling_rate 10000
+    write /sys/devices/system/cpu/cpufreq/smartmax/sampling_rate 100000
+    write /sys/devices/system/cpu/cpufreq/smartmax/suspend_ideal_freq 729600
+    write /sys/devices/system/cpu/cpufreq/smartmax/touch_poke_freq 1190400
+    write /sys/devices/system/cpu/cpufreq/smartmax/io_is_busy 1
+    write /sys/class/devfreq/qcom,cpubw.40/governor "cpubw_hwmon"
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
+
+# Performance
+on property:persist.spectrum.profile=1
+    write /sys/kernel/msm_limiter/suspend_min_freq "0:268800 1:268800 2:268800 3:268800"
+    write /sys/kernel/msm_limiter/resume_max_freq "0:2457600 1:2457600 2:2457600 3:2457600"
+    write /sys/kernel/msm_limiter/suspend_max_freq "0:1267200 1:1267200 2:1267200 3:1267200"
+    write /sys/module/msm_thermal/parameters/temp_threshold 65
+    write /sys/kernel/msm_limiter/scaling_governor "0:interactive 1:interactive 2:interactive 3:interactive"
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1400000:40000 1700000:20000"
+    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 70
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1497600
+    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "45 1700000:40 1900000:50"
+    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 100000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
+    write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 1500000
+    write /sys/devices/system/cpu/cpufreq/interactive/inter_input_boost_freq 1497600
+    write /sys/class/devfreq/qcom,cpubw.40/governor "cpubw_hwmon"
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
+
+# Battery
+on property:persist.spectrum.profile=2
+    write /sys/kernel/msm_limiter/suspend_min_freq "0:268800 1:268800 2:268800 3:268800"
+    write /sys/kernel/msm_limiter/resume_max_freq "0:1036800 1:1036800 2:1036800 3:1036800"
+    write /sys/kernel/msm_limiter/suspend_max_freq "0:1036800 1:1036800 2:1036800 3:1036800"
+    write /sys/module/msm_thermal/parameters/temp_threshold 65
+    write /sys/kernel/msm_limiter/scaling_governor "0:interactive 1:interactive 2:interactive 3:interactive"
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1400000:40000 1700000:20000"
+    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 70
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 729600
+    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "89 1300000:45 1500000:65 1700000:80 1800000:98"
+    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 100000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
+    write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 1500000
+    write /sys/devices/system/cpu/cpufreq/interactive/inter_input_boost_freq 883200
+    write /sys/class/devfreq/qcom,cpubw.40/governor "cpubw_hwmon"
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "powersave"
+
+# Gaming
+on property:persist.spectrum.profile=3
+    write /sys/kernel/msm_limiter/suspend_min_freq "0:268800 1:268800 2:268800 3:268800"
+    write /sys/kernel/msm_limiter/resume_max_freq "0:2457600 1:2457600 2:2457600 3:2457600"
+    write /sys/kernel/msm_limiter/suspend_max_freq "0:1267200 1:1267200 2:1267200 3:1267200"
+    write /sys/module/msm_thermal/parameters/temp_threshold 65
+    write /sys/kernel/msm_limiter/scaling_governor "0:interactive 1:interactive 2:interactive 3:interactive"
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1400000:40000 1700000:20000"
+    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 70
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1497600
+    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "45 1700000:40 1900000:50"
+    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
+    write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 100000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
+    write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 1500000
+    write /sys/devices/system/cpu/cpufreq/interactive/inter_input_boost_freq 1497600
+    write /sys/class/devfreq/qcom,cpubw.40/governor "performance"
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "performance"
