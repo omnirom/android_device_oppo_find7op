@@ -16,6 +16,7 @@
 
 import init.oppo.common.rc
 import init.qcom.power.rc
+import init.spectrum.rc
 
 on init
     # NXP HAL expects /dev/pn54x

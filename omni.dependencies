@@ -3,12 +3,12 @@
     "remote": "omnirom",
     "repository": "android_device_oppo_msm8974-common",
     "target_path": "device/oppo/msm8974-common",
-    "revision": "android-8.0"
+    "revision": "android-8.1"
   },
   {
-    "remote": "omnirom",
-    "repository": "android_kernel_oneplus_msm8974",
+    "remote": "github",
+    "repository": "Okeys/lightning-kernel-bacon",
     "target_path": "kernel/oneplus/msm8974",
-    "revision": "android-8.0"
+    "revision": "lightning-3.4-cam"
   }
 ]
