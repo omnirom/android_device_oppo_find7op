@@ -1,190 +1,71 @@
 on early-init
-    setprop sys.io.scheduler noop
-    write /sys/block/mmcblk0/bdi/read_ahead_kb 512
-    write /sys/class/mmc_host/mmc0/clk_scaling/scale_down_in_low_wr_load 1
-
-on enable-low-power
-    write /sys/module/lpm_levels/enable_low_power/l2 4
-    write /sys/module/msm_pm/modes/cpu0/power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu1/power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu2/power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu3/power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu0/power_collapse/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu1/power_collapse/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu2/power_collapse/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu3/power_collapse/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu0/standalone_power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu1/standalone_power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu2/standalone_power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu3/standalone_power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu0/standalone_power_collapse/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu1/standalone_power_collapse/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu2/standalone_power_collapse/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu3/standalone_power_collapse/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu0/retention/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu1/retention/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu2/retention/idle_enabled 1
-    write /sys/module/msm_pm/modes/cpu3/retention/idle_enabled 1
-
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1400000:40000 1700000:20000"
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 70
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1190400
-    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "89 1300000:45 1500000:65 1700000:80 1800000:98"
-    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
-    write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 100000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
-
-    write /sys/kernel/cpu_input_boost/ib_freqs "1190400 1497600"
-    write /sys/kernel/cpu_input_boost/ib_duration_ms 1400
-    write /sys/kernel/cpu_input_boost/enabled 1
-
-    write /sys/kernel/msm_thermal/enabled 0
-    write /sys/kernel/msm_thermal/zone0 "1728000 39 38"
-    write /sys/kernel/msm_thermal/zone1 "1574400 42 40"
-    write /sys/kernel/msm_thermal/zone2 "1497600 45 43"
-    write /sys/kernel/msm_thermal/zone3 "1267200 49 46"
-    write /sys/kernel/msm_thermal/zone4 "1190400 53 50"
-    write /sys/kernel/msm_thermal/zone5 "1036800 56 54"
-    write /sys/kernel/msm_thermal/zone6 "960000 62 60"
-    write /sys/kernel/msm_thermal/zone7 "729600 79 75"
-    write /sys/kernel/msm_thermal/sampling_ms 8000
-    write /sys/kernel/msm_thermal/enabled 1
-
-    start mpdecision
-
-    setprop sys.io.scheduler cfq
-
-on charger
-    write /sys/module/lpm_levels/enable_low_power/l2 2
-    write /sys/module/msm_pm/modes/cpu0/power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu1/power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu2/power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu3/power_collapse/suspend_enabled 1
-    write /sys/module/msm_pm/modes/cpu0/power_collapse/idle_enabled 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "powersave"
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
-    write /sys/devices/system/cpu/cpu1/online 0
-    write /sys/devices/system/cpu/cpu2/online 0
-    write /sys/devices/system/cpu/cpu3/online 0
-
-on boot
-    # Set light thermal restrictions while optimizing apps
-    # [throttle_freq, throttle_temp, unthrottle_temp]
-    write /sys/kernel/msm_thermal/zone0 "1728000 45 43"
-    write /sys/kernel/msm_thermal/zone1 "1574400 50 47"
-    write /sys/kernel/msm_thermal/zone2 "1267200 55 53"
-    write /sys/kernel/msm_thermal/enabled 1
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
 
 on property:sys.boot_completed=1
-    trigger enable-low-power
+    # according to Qcom this legacy value improves first launch latencies
+    # stock value is 512k
+    setprop dalvik.vm.heapminfree 2m
+    setprop sys.io.scheduler "bfq"
 
-on property:init.svc.recovery=running
-    write /sys/class/leds/button-backlight/brightness 255
-    trigger enable-low-power
+    # cpufreq settings
+    chown system.system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chown system.system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chown system.system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
-on property:recovery.perf.mode=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
+    # msm hotplug
+    write /sys/module/msm_hotplug/min_cpus_online 1
+    write /sys/module/msm_hotplug/cpus_boosted 2
+    write /sys/module/msm_hotplug/down_lock_duration 500
+    write /sys/module/msm_hotplug/boost_lock_duration 2500
+    write /sys/module/msm_hotplug/update_rates 200 5:100 50:50 350:200
+    write /sys/module/msm_hotplug/fast_lane_load 100
+    write /sys/module/msm_hotplug/max_cpus_online_susp 1
+    write /sys/module/msm_hotplug/msm_enabled 1
 
-on property:recovery.perf.mode=0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    # VM tuning
+    write /proc/sys/vm/dirty_background_ratio 20
+    write /proc/sys/vm/dirty_expire_centisecs 200
+    write /proc/sys/vm/dirty_ratio 40
+    write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/swappiness 0
+    write /proc/sys/vm/vfs_cache_pressure 80
 
-on property:sys.perf.profile=0
-    stop mpdecision
-    write /sys/kernel/msm_thermal/user_maxfreq 960000
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "conservative"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "conservative"
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "conservative"
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "conservative"
-    start mpdecision
+    # mics tweaks
+    write /sys/kernel/sched/gentle_fair_sleepers 0
+    write /sys/module/adreno_idler/parameters/adreno 1
+    write /sys/module/kernel/parameters/initcall_debug "N"
+    write /sys/module/alarm_dev/parameters/debug_mask 0
+    write /sys/module/binder/parameters/debug_mask 0
+    write /sys/module/xt_qtaguid/parameters/debug_mask 0
+    write /sys/block/mmcblk0/queue/add_random 0
+    write /sys/module/workqueue/parameters/power_efficient 1
+    write /sys/module/sync/parameters/fsync_enabled "Y"
+    write /sys/module/state_notifier/parameters/enabled 1
+    write /dev/cpuctl/cpu.notify_on_migrate 1
 
-    write /sys/class/devfreq/qcom,cpubw.40/governor "powersave"
-    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "powersave"
+    # cpu boost
+    write /sys/module/cpu_boost/parameters/boost_ms 0
+    write /sys/module/cpu_boost/parameters/sync_threshold 0
+    write /sys/module/cpu_boost/parameters/input_boost_freq 1497600
+    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    write /sys/module/cpu_boost/parameters/input_boost_enabled 1
+    write /sys/module/cpu_boost/parameters/hotplug_boost "N"
 
-    # Set normal thermal restrictions
-    write /sys/kernel/msm_thermal/enabled 0
-    write /sys/kernel/msm_thermal/zone0 "1728000 39 38"
-    write /sys/kernel/msm_thermal/zone1 "1574400 42 40"
-    write /sys/kernel/msm_thermal/zone2 "1497600 45 43"
-    write /sys/kernel/msm_thermal/zone3 "1267200 49 46"
-    write /sys/kernel/msm_thermal/zone4 "1190400 53 50"
-    write /sys/kernel/msm_thermal/zone5 "1036800 56 54"
-    write /sys/kernel/msm_thermal/zone6 "960000 62 60"
-    write /sys/kernel/msm_thermal/zone7 "729600 79 75"
-    write /sys/kernel/msm_thermal/sampling_ms 8000
-    write /sys/kernel/msm_thermal/enabled 1
+    # IO
+    write /sys/block/mmcblk0/queue/rq_affinity 1
+    write /sys/block/mmcblk0/queue/add_random 0
+    write /sys/block/mmcblk0/bdi/min_ratio 5
+    write /sys/block/mmcblk0/queue/read_ahead_kb 1024
+    write /sys/block/mmcblk0/queue/scheduler "bfq"
 
-on property:sys.perf.profile=1
-    stop mpdecision
-    write /sys/kernel/msm_thermal/user_maxfreq 0
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "interactive"
+    # wakelocks
+    write /sys/module/wakeup/parameters/enable_wlan_rx_wake_ws "N"
+    write /sys/module/wakeup/parameters/enable_wlan_ctrl_wake_ws "N"
+    write /sys/module/wakeup/parameters/enable_wlan_wake_ws "N"
+    write /sys/module/wakeup/parameters/enable_si_ws "N"
+    write /sys/module/wakeup/parameters/enable_msm_hsic_ws "N"
+    write /sys/module/wakeup/parameters/enable_bluesleep_ws "N"
 
-    # Set normal performance settings
-    write /sys/kernel/cpu_input_boost/ib_freqs "1190400 1497600"
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 70
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1190400
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "89 1300000:45 1500000:65 1700000:80 1800000:98"
-    start mpdecision
-
-    write /sys/class/devfreq/qcom,cpubw.40/governor "msm_cpufreq"
-    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "msm-adreno-tz"
-
-    # Set normal thermal restrictions
-    write /sys/kernel/msm_thermal/enabled 0
-    write /sys/kernel/msm_thermal/zone0 "1728000 39 38"
-    write /sys/kernel/msm_thermal/zone1 "1574400 42 40"
-    write /sys/kernel/msm_thermal/zone2 "1497600 45 43"
-    write /sys/kernel/msm_thermal/zone3 "1267200 49 46"
-    write /sys/kernel/msm_thermal/zone4 "1190400 53 50"
-    write /sys/kernel/msm_thermal/zone5 "1036800 56 54"
-    write /sys/kernel/msm_thermal/zone6 "960000 62 60"
-    write /sys/kernel/msm_thermal/zone7 "729600 79 75"
-    write /sys/kernel/msm_thermal/sampling_ms 8000
-    write /sys/kernel/msm_thermal/enabled 1
-
-on property:sys.perf.profile=2
-    stop mpdecision
-    write /sys/kernel/msm_thermal/user_maxfreq 0
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "interactive"
-
-    # Keep all CPUs online and make Interactive + CPU boost more aggressive
-    write /sys/kernel/cpu_input_boost/ib_freqs "1497600 1497600"
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 35
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1497600
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "45 1700000:40 1900000:50"
-
-    write /sys/class/devfreq/qcom,cpubw.40/governor "performance"
-    write /sys/class/kgsl/kgsl-3d0/devfreq/governor "performance"
-
-    # Set light thermal restrictions for performance mode
-    write /sys/kernel/msm_thermal/enabled 0
-    write /sys/kernel/msm_thermal/zone0 "1728000 46 45"
-    write /sys/kernel/msm_thermal/zone1 "1574400 49 47"
-    write /sys/kernel/msm_thermal/zone2 "1497600 52 50"
-    write /sys/kernel/msm_thermal/zone3 "1267200 56 53"
-    write /sys/kernel/msm_thermal/zone4 "1190400 60 57"
-    write /sys/kernel/msm_thermal/zone5 "1036800 63 61"
-    write /sys/kernel/msm_thermal/zone6 "960000 69 67"
-    write /sys/kernel/msm_thermal/zone7 "729600 80 76"
-    write /sys/kernel/msm_thermal/sampling_ms 1000
-write /sys/kernel/msm_thermal/enabled 1

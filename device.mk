@@ -18,7 +18,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.find7op.rc:root/init.qcom.rc \
     $(LOCAL_PATH)/configs/init.find7op.power.rc:root/init.qcom.power.rc \
     $(LOCAL_PATH)/configs/fstab.find7op:root/fstab.qcom \
-    $(LOCAL_PATH)/configs/twrp.fstab:recovery/root/etc/twrp.fstab
+    $(LOCAL_PATH)/configs/twrp.fstab:recovery/root/etc/twrp.fstab \
+    $(LOCAL_PATH)/configs/init.spectrum.rc:root/init.spectrum.rc
 
 # Audio config files
 PRODUCT_COPY_FILES += \
@@ -47,5 +48,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qualcomm.perf.cores_online=1 \
+    ro.qualcomm.perf.cores_online=2 \
     ro.vendor.extension_library=libqti-perfd-client.so
