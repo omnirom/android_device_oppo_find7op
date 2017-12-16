@@ -52,7 +52,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Inline kernel
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8974
-TARGET_KERNEL_CONFIG := msm8974_find7op_defconfig
+TARGET_KERNEL_CONFIG := lightning_bacon_defconfig
 
 # Inherit from proprietary blobs
 $(call inherit-product, vendor/oppo/find7a/find7a-vendor.mk)
