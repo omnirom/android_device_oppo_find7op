@@ -22,7 +22,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio config files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/mixer_paths.xml:/system/etc/mixer_paths.xml
+    $(LOCAL_PATH)/mixer_paths.xml:/system/vendor/etc/mixer_paths.xml
 
 # device specific packages
 PRODUCT_PACKAGES += \
