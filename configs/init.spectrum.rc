@@ -15,17 +15,16 @@ on property:sys.boot_completed=1
 on property:persist.spectrum.profile=0
     write /sys/kernel/msm_limiter/suspend_min_freq "0:268800 1:268800 2:268800 3:268800"
     write /sys/kernel/msm_limiter/resume_max_freq "0:1958400 1:1958400 2:1958400 3:1958400"
-    write /sys/kernel/msm_limiter/suspend_max_freq "0:1420800 1:1420800 2:1420800 3:1420800"
+    write /sys/kernel/msm_limiter/suspend_max_freq "0:1267200 1:1267200 2:1267200 3:1267200"
     write /sys/module/msm_thermal/parameters/temp_threshold 65
     write /sys/kernel/msm_limiter/scaling_governor "0:smartmax 1:smartmax 2:smartmax 3:smartmax"
-    write /sys/devices/system/cpu/cpufreq/smartmax/awake_ideal_freq 1036800
-    write /sys/devices/system/cpu/cpufreq/smartmax/boost_freq 1958400
-    write /sys/devices/system/cpu/cpufreq/smartmax/down_rate 3
-    write /sys/devices/system/cpu/cpufreq/smartmax/max_cpu_load 80
-    write /sys/devices/system/cpu/cpufreq/smartmax/min_cpu_load 15
+    write /sys/devices/system/cpu/cpufreq/smartmax/awake_ideal_freq 1036000
+    write /sys/devices/system/cpu/cpufreq/smartmax/down_rate 60000
+    write /sys/devices/system/cpu/cpufreq/smartmax/max_cpu_load 60
+    write /sys/devices/system/cpu/cpufreq/smartmax/min_cpu_load 10
     write /sys/devices/system/cpu/cpufreq/smartmax/min_sampling_rate 10000
-    write /sys/devices/system/cpu/cpufreq/smartmax/sampling_rate 100000
-    write /sys/devices/system/cpu/cpufreq/smartmax/suspend_ideal_freq 729600
+    write /sys/devices/system/cpu/cpufreq/smartmax/sampling_rate 30000
+    write /sys/devices/system/cpu/cpufreq/smartmax/input_boost_duration 90000
     write /sys/devices/system/cpu/cpufreq/smartmax/touch_poke_freq 1190400
     write /sys/devices/system/cpu/cpufreq/smartmax/io_is_busy 1
     write /sys/class/devfreq/qcom,cpubw.40/governor "cpubw_hwmon"

@@ -55,4 +55,4 @@ TARGET_KERNEL_SOURCE := kernel/oneplus/msm8974
 TARGET_KERNEL_CONFIG := lightning_bacon_defconfig
 
 # Inherit from proprietary blobs
-$(call inherit-product, vendor/oppo/find7a/find7a-vendor.mk)
+$(call inherit-product, vendor/oppo/find7op/find7op-vendor.mk)
