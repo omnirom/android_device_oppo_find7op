@@ -55,7 +55,7 @@ WCNSS_IMAGES := \
     wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b04 wcnss.b06 \
     wcnss.b07 wcnss.b08 wcnss.b09 wcnss.mdt
 
-WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(WCNSS_IMAGES)))
+WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WCNSS_IMAGES)))
 $(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS firmware link: $@"
 	@mkdir -p $(dir $@)
@@ -157,10 +157,11 @@ $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wcd9320; \
 	ln -sf /data/misc/audio/wcd9320_mad_audio.bin \
 		$(TARGET_OUT)/etc/firmware/wcd9320/wcd9320_mad_audio.bin)
 
-WCNSS_CFG_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
-$(WCNSS_CFG_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-	@mkdir -p $(dir $@)
-	$(hide) ln -sf /data/misc/wifi/$(notdir $@) $@
+# Create a link for the WCNSS config file, which ends up as a writable
+# version in /data/misc/wifi
+$(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
+    ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
+            $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_CFG_SYMLINK)
 
