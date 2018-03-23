@@ -344,6 +344,13 @@
         <item>25</item>
     </integer-array>
 
+    <!-- The list absolute paths of jar/apk files containing the device specific handlers,
+        delimited by File.pathSeparator, which defaults to ":" on Android -->
+    <string name="config_deviceKeyHandlerLib" translatable="false">/system/app/Find7Parts/Find7Parts.apk</string>
+    <!-- Full qualified name of the class that implements
+        com.android.internal.os.DeviceKeyHandler interface. -->
+    <string name="config_deviceKeyHandlerClass" translatable="false">org.omnirom.device.KeyHandler</string>
+
     <!-- Doze mode -->
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
     <integer name="config_screenBrightnessDoze">5</integer>
@@ -386,9 +393,9 @@
     <!-- Night Mode -->
     <bool name="config_nightDisplayAvailable">true</bool>
 
-    <!-- Proximity check -->
+    <!-- Proximity check
     <bool name="config_proximityCheckOnWake">true</bool>
-    <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
+    <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>-->
 
      <!-- Specifies the path that is used by AdaptiveIconDrawable class to crop launcher icons. -->
      <string name="config_icon_mask" translatable="false">"M50 0C77.6 0 100 22.4 100 50C100 77.6 77.6 100 50 100C22.4 100 0 77.6 0 50C0 22.4 22.4 0 50 0Z"</string>

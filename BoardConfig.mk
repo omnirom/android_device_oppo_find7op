@@ -87,6 +87,8 @@ TARGET_USE_COMPAT_GRALLOC_ALIGN := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_USE_VENDOR_CAMERA_EXT := true
 TARGET_USES_MEDIA_EXTENSIONS := true
+TARGET_USES_QTI_CAMERA2CLIENT := true
+BOARD_USES_SNAPDRAGONCAMERA_VERSION := 2
 
 # DT2W
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
@@ -94,7 +96,7 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 TARGET_LEGACY_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/cryptfs_hw
+TARGET_CRYPTFS_HW_PATH := device/oppo/find7op/cryptfs_hw
 
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -160,28 +162,26 @@ TARGET_USE_SDCLANG := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
-BOARD_HAS_QCOM_WLAN_SDK          := true
 BOARD_WLAN_DEVICE                := qcwcn
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_HOSTAPD_DRIVER             := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_qcwcn
-TARGET_USES_WCNSS_CTRL           := true
-TARGET_PROVIDES_WCNSS_QMI        := true
-TARGET_USES_WCNSS_MAC_ADDR_REV   := true
-TARGET_WCNSS_MAC_PREFIX          := e8bba8
+BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
+TARGET_USES_QCOM_WCNSS_QMI       := true
+TARGET_PROVIDES_WCNSS_QMI        := true
+TARGET_USES_WCNSS_MAC_ADDR_REV   := true
 
 # Bluetooth
 FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 
 # QCNE
-ifeq ($(BOARD_USES_QCNE),true)
-TARGET_LDPRELOAD := libNimsWrap.so
-endif
-endif
+#ifeq ($(BOARD_USES_QCNE),true)
+#TARGET_LDPRELOAD := libNimsWrap.so
+#endif
+#endif
 
 DEVICE_MANIFEST_FILE := device/oppo/find7op/manifest.xml
 
