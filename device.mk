@@ -83,7 +83,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service.bacon \
+    android.hardware.camera.provider@2.4-service.find7op \
     camera.msm8974 \
     SnapdragonCamera2
 
@@ -238,7 +238,7 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl \
     com.android.nfc_extras \
     NfcNci \
-    nfc_nci.bacon \
+    nfc_nci.find7op \
     Tag
 
 PRODUCT_COPY_FILES += \
@@ -287,15 +287,13 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.bacon \
-    init.bacon.rc \
+    fstab.find7op \
+    init.find7op.rc \
     init.qcom.power.rc \
     init.qcom.usb.rc \
-    init.recovery.bacon.rc \
-    libinit_bacon \
-    ueventd.bacon.rc \
-    init.thunder.rc \
-    init.omni.rc
+    init.recovery.find7op.rc \
+    libinit_find7op \
+    ueventd.find7op.rc
 
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh

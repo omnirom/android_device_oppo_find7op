@@ -16,7 +16,6 @@
 
 import /init.qcom.usb.rc
 import /init.qcom.power.rc
-import /init.omni.rc
 import /init.spectrum.rc
 
 on early-init
@@ -40,8 +39,8 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
 
 on fs
-    mount_all ./fstab.bacon
-    swapon_all ./fstab.bacon
+    mount_all ./fstab.find7op
+    swapon_all ./fstab.find7op
 
     restorecon_recursive /persist
 
