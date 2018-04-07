@@ -1,9 +1,9 @@
 [
   {
-    "remote": "github",
-    "repository": "Okeys/lightning-kernel-bacon",
+    "remote": "omnirom",
+    "repository": "android_kernel_oneplus_msm8974",
     "target_path": "kernel/oneplus/msm8974",
-    "revision": "lightning-3.4-oos"
+    "revision": "android-8.1"
   },
   {
     "remote": "omnirom",
