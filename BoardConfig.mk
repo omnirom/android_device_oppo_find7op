@@ -131,6 +131,9 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_find7op
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
+# power hal
+TARGET_PROVIDES_POWERHAL := true
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
