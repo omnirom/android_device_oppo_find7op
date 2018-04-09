@@ -70,5 +70,17 @@
     "repository": "android_vendor_qcom_opensource_interfaces",
     "target_path": "vendor/qcom/opensource/interfaces",
     "revision": "android-8.1"
+  },
+    {
+    "remote": "github",
+    "repository": "Okeys/external_sony_boringssl-compat",
+    "target_path": "external/sony/boringssl-compat",
+    "revision": "oreo-mr1"
+  },
+    {
+    "remote": "github",
+    "repository": "Okeys/hardware_qcom_camera",
+    "target_path": "hardware/qcom/camera",
+    "revision": "oreo-mr1"
   }
 ]
