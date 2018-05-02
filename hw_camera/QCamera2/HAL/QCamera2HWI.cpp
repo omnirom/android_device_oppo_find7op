@@ -1377,7 +1377,6 @@ static cam_dimension_t new_pic_sizes_cam0[] = {
 static cam_dimension_t new_vid_sizes_cam0[] = {
     {4096, 2160},
     {3840, 2160},
-    {2560, 1440},
     {1920, 1080},
     {1280, 720},
     {800, 480},
@@ -1389,7 +1388,6 @@ static cam_dimension_t new_vid_sizes_cam0[] = {
 static cam_dimension_t new_prvw_sizes_cam0[] = {
     {4096, 2160},
     {3840, 2160},
-    {2560, 1440},
     {1920, 1080},
     {1440, 1080},
     {1280, 720},
@@ -1399,7 +1397,6 @@ static cam_dimension_t new_prvw_sizes_cam0[] = {
 };
 
 static cam_dimension_t new_vid_sizes_cam1[] = {
-    {2560, 1440},
     {1920, 1080},
     {1280, 720},
     {864, 480},
@@ -1410,7 +1407,6 @@ static cam_dimension_t new_vid_sizes_cam1[] = {
 };
 
 static cam_dimension_t new_prvw_sizes_cam1[] = {
-    {2560, 1440},
     {1920, 1080},
     {1440, 1080},
     {1280, 720},
