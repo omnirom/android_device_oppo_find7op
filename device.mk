@@ -293,7 +293,6 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.find7op.rc \
     libinit_find7op \
-    init.spectrum.rc \
     ueventd.find7op.rc
 
 PRODUCT_PACKAGES += \
