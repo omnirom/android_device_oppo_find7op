@@ -31,4 +31,9 @@
          increase the rate of unintentional unlocks. -->
     <bool name="config_lockscreenAntiFalsingClassifierEnabled">false</bool>
 
+        <!-- The CPU temperature sensor path -->
+    <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone5/temp</string>
+           <!-- The CPU temperature divider, if needed -->
+    <integer name="config_cpuTempDivider" translatable="false">1</integer>
+
 </resources>
